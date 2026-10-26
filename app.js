@@ -44,7 +44,7 @@ const T = {
 const VERIFIED = '26 oct 2026';
 
 /* ---------- Fotos reales (Wikipedia / Commons) ---------- */
-// key: [título en en.wikipedia, búsqueda de respaldo en Commons]
+// key: [título en en.wikipedia, búsquedas de respaldo en Commons en orden]
 const PH = {
   reloj: ['', 'Torre del Reloj Cartagena'],
   murallas: ['Walls of Cartagena', 'murallas de Cartagena'],
@@ -61,11 +61,11 @@ const PH = {
   pegasos: ['', 'Muelle de los Pegasos Cartagena'],
   bocagrande: ['Bocagrande', 'Bocagrande Cartagena skyline'],
   boquilla: ['', 'La Boquilla Cartagena beach'],
-  malecon: ['', 'Gran Malecon del Mar Cartagena'],
-  mcrespo: ['', 'playa Crespo Cartagena'],
-  mbici: ['', 'ciclovia malecon Cartagena mar'],
-  mplaya: ['', 'Marbella beach Cartagena'],
-  mespolon: ['', 'espolon playa Cartagena'],
+  malecon: ['', 'Gran Malecon del Mar Cartagena', 'Crespo Cartagena beach', 'La Boquilla Cartagena', 'Cartagena Colombia beach'],
+  mcrespo: ['', 'playa Crespo Cartagena', 'Crespo Cartagena', 'Cartagena Colombia sea', 'Cartagena de Indias playa'],
+  mbici: ['', 'ciclovia Cartagena', 'bicycle Cartagena Colombia', 'Cartagena promenade sea', 'Cartagena Colombia coast'],
+  mplaya: ['', 'Marbella beach Cartagena', 'playa Marbella Cartagena', 'Cartagena beach', 'Bocagrande beach'],
+  mespolon: ['', 'espolon playa Cartagena', 'breakwater Cartagena Colombia', 'Cartagena Colombia coast'],
   bazurto: ['', 'Mercado de Bazurto Cartagena'],
   rosario: ['Rosario Islands', 'Islas del Rosario Colombia'],
   playablanca: ['', 'Playa Blanca Baru Colombia'],
@@ -127,7 +127,7 @@ async function loadPhotos() {
       need.forEach(k => { if (PH[k][0] && got[PH[k][0]]) PHOTO_CACHE[k] = got[PH[k][0]]; });
     }
     const rest = Object.keys(PH).filter(k => !PHOTO_CACHE[k]);
-    await Promise.all(rest.map(async k => { const u = await commonsSearch(PH[k][1]); if (u) PHOTO_CACHE[k] = u; }));
+    await Promise.all(rest.map(async k => { for (const q of PH[k].slice(1)) { const u = await commonsSearch(q); if (u) { PHOTO_CACHE[k] = u; break; } } }));
     store.set('photos', PHOTO_CACHE);
   })();
   return photosLoading;
