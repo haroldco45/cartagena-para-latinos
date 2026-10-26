@@ -1,0 +1,16 @@
+{
+  "name": "Cartagena para Latinos — Guía de supervivencia en Cartagena de Indias",
+  "short_name": "Cartagena Latinos",
+  "description": "App bilingüe para latinos recién llegados a Cartagena de Indias, Colombia: PPT, PEP Tutor y Visa V, salario mínimo 2026, Transcaribe, salud, emergencias, costeño, fiestas de noviembre, Getsemaní e Islas del Rosario.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#EB0A1E",
+  "lang": "es",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
