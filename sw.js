@@ -1,5 +1,5 @@
 /* Cartagena para Latinos — Service Worker (Vibras Positivas HM) */
-const VERSION = 'ctg-v3';
+const VERSION = 'ctg-v4';
 const SHELL = ['./', './index.html', './app.js', './manifest.json', './icon-192.png', './icon-512.png',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'];

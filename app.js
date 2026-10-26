@@ -61,8 +61,8 @@ const PH = {
   pegasos: ['', 'Muelle de los Pegasos Cartagena'],
   bocagrande: ['Bocagrande', 'Bocagrande Cartagena skyline'],
   boquilla: ['', 'La Boquilla Cartagena beach'],
-  malecon: ['', 'Gran Malecon del Mar Cartagena', 'Crespo Cartagena beach', 'La Boquilla Cartagena', 'Cartagena Colombia beach'],
-  mcrespo: ['', 'playa Crespo Cartagena', 'Crespo Cartagena', 'Cartagena Colombia sea', 'Cartagena de Indias playa'],
+  malecon: ['', 'Gran Malecon del Mar Cartagena', 'Crespo Cartagena skyline', 'Marbella Cartagena', 'Cartagena skyline beach', 'Cartagena Colombia skyline'],
+  mcrespo: ['', 'playa Crespo Cartagena', 'Crespo Cartagena', 'Cartagena Colombia sea', 'Cartagena de Indias playa', 'Cartagena beach sunset'],
   mbici: ['', 'ciclovia Cartagena', 'bicycle Cartagena Colombia', 'Cartagena promenade sea', 'Cartagena Colombia coast'],
   mplaya: ['', 'Marbella beach Cartagena', 'playa Marbella Cartagena', 'Cartagena beach', 'Bocagrande beach'],
   mespolon: ['', 'espolon playa Cartagena', 'breakwater Cartagena Colombia', 'Cartagena Colombia coast'],
@@ -88,7 +88,7 @@ const PH = {
   balcon: ['', 'Cartagena colonial balcony flowers'],
   street: ['', 'Cartagena old city street colorful']
 };
-const PHOTO_CACHE = store.get('photos', {});
+const PHOTO_CACHE = store.get('photos3', {});
 function fbColor(key) { let h = 0; for (const c of key) h = (h * 31 + c.charCodeAt(0)) >>> 0; return PALETTE[h % PALETTE.length]; }
 const photo = key => `data-ph="${key}" style="--fb:${fbColor(key)}"`;
 
@@ -127,8 +127,15 @@ async function loadPhotos() {
       need.forEach(k => { if (PH[k][0] && got[PH[k][0]]) PHOTO_CACHE[k] = got[PH[k][0]]; });
     }
     const rest = Object.keys(PH).filter(k => !PHOTO_CACHE[k]);
-    await Promise.all(rest.map(async k => { for (const q of PH[k].slice(1)) { const u = await commonsSearch(q); if (u) { PHOTO_CACHE[k] = u; break; } } }));
-    store.set('photos', PHOTO_CACHE);
+    const firsts = rest.filter(k => PH[k].length <= 2), multi = rest.filter(k => PH[k].length > 2);
+    await Promise.all(firsts.map(async k => { const u = await commonsSearch(PH[k][1]); if (u) PHOTO_CACHE[k] = u; }));
+    for (const k of multi) {
+      for (const q of PH[k].slice(1)) {
+        const u = await commonsSearch(q);
+        if (u && !Object.values(PHOTO_CACHE).includes(u)) { PHOTO_CACHE[k] = u; break; }
+      }
+    }
+    store.set('photos3', PHOTO_CACHE);
   })();
   return photosLoading;
 }
@@ -645,6 +652,7 @@ function featureView(id, data, o) {
   return `${head(id, L(o.title), L(o.sub))}
   <div class="hero" style="min-height:260px" ${photo(o.ph)}><div class="in"><span class="kicker">${L(o.kicker)}</span><h1 style="font-size:2.3rem">${L(o.h1)}</h1><p>${L(o.p)}</p></div></div>
   <div class="card reveal"><h3>${L({ es: 'Qué es', en: 'What it is' })}</h3><ul class="small">${data.what.map(x => `<li>${L(x)}</li>`).join('')}</ul></div>
+  ${o.extra || ''}
   <div class="sec-head"><div><h2>${L({ es: 'Qué hacer', en: 'What to do' })}</h2><p>${L({ es: 'Desliza para ver más.', en: 'Swipe for more.' })}</p></div></div>
   <div class="rail">${data.doit.map(d => `<article class="place"><div class="ph" ${photo(d[2])}></div><div class="bd"><h3>${L(d[0])}</h3><p>${L(d[1])}</p></div></article>`).join('')}</div>
   <div class="sec-head"><div><h2>${L(o.tipsT)}</h2></div></div>
@@ -657,11 +665,15 @@ V.getsemani = () => featureView('getsemani', GS, {
   p: { es: 'Murales, sombrillas de colores y la Plaza de la Trinidad llena de vida.', en: 'Murals, colourful umbrellas and a lively Trinidad Square.' },
   tipsT: { es: 'Consejos de latino a latino', en: 'Tips from Latinos to Latinos' }, mapId: 'getsemani', yt: 'Getsemaní Cartagena'
 });
+const MALECON_POST = 'https://www.instagram.com/p/De8DJHfxRVf/';
 V.malecon = () => featureView('malecon', ML, {
   title: { es: 'Gran Malecón del Mar', en: 'Gran Malecón del Mar' }, sub: { es: 'El nuevo paseo frente al mar de la zona norte, abierto el 24 de octubre de 2026.', en: 'The new seafront promenade in the north, opened on 24 October 2026.' },
   ph: 'malecon', kicker: { es: 'Nuevo en Cartagena', en: 'New in Cartagena' }, h1: { es: 'Gran Malecón del Mar', en: 'Gran Malecón del Mar' },
   p: { es: '2 km para caminar, montar bici y disfrutar el Caribe gratis. Serán 6 km en 2027.', en: '2 km to walk, cycle and enjoy the Caribbean for free. It will be 6 km in 2027.' },
-  tipsT: { es: 'Consejos para ir', en: 'Tips for going' }, mapId: 'malecon', yt: 'Gran Malecón del Mar Cartagena'
+  tipsT: { es: 'Consejos para ir', en: 'Tips for going' }, mapId: 'malecon', yt: 'Gran Malecón del Mar Cartagena',
+  extra: `<div class="sec-head"><div><h2>${L({ es: 'Así se ve hoy', en: 'What it looks like today' })}</h2><p>${L({ es: 'Video del malecón lleno de familias y turistas. Crédito: Visor Caribe Noticias (Instagram).', en: 'Video of the promenade packed with families and tourists. Credit: Visor Caribe Noticias (Instagram).' })}</p></div></div>
+  <div class="card reveal" style="padding:0;overflow:hidden;max-width:540px;margin:0 auto"><iframe src="${MALECON_POST}embed/" title="Gran Malecón del Mar — Visor Caribe Noticias" loading="lazy" style="width:100%;height:640px;border:0;display:block" allowfullscreen></iframe></div>
+  <div class="btns" style="justify-content:center">${linkBtn(MALECON_POST, L({ es: 'Ver en Instagram', en: 'Watch on Instagram' }), 'sm red')}</div>`
 });
 V.islas = () => featureView('islas', IS, {
   title: { es: 'Islas del Rosario y Barú', en: 'Rosario Islands & Barú' }, sub: { es: 'El paseo de playa más famoso desde Cartagena.', en: 'The most famous beach day out from Cartagena.' },
