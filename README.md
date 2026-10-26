@@ -9,12 +9,12 @@ App: https://haroldco45.github.io/cartagena-para-latinos/
 - **Papeles, PPT y visas**: las tres vías vigentes para venezolanos (PPT para menores, PEP Tutor y Visa V), cuenta regresiva al plazo para reclamar PPT aprobados (4 nov 2026) y luego al del PEP Tutor (31 dic 2026), Check-MIG y oficinas.
 - **Trabajo y salario**: mínimo 2026 ($1.750.905 · con auxilio $2.000.000), hora de $8.338 con la jornada de 42 h, tabla de recargos (dominical 90%) y calculadora con descuentos y auxilio.
 - **Fiestas de Independencia 2026**: agenda oficial con días que faltan para cada evento.
-- **Barrio Getsemaní** e **Islas del Rosario y Barú**: secciones propias con qué hacer y consejos.
+- **Gran Malecón del Mar** (nuevo, abierto el 24 oct 2026), **Barrio Getsemaní** e **Islas del Rosario y Barú**: secciones propias con qué hacer y consejos.
 - **Transcaribe y transporte**: pasaje de $3.900 (Decreto 017 de 2026), taxis, busetas, mototaxis, lanchas y terminal.
 - **Salud y SOS**: 123, 132, 119, 155, 141, 165, 122; hospitales, SISBEN y EPS.
 - **Hablar costeño**: palabras con voz, conversaciones, de Venezuela a Colombia e inglés para trabajar en turismo.
 - **Peso y cambio**: dólar, euro y bolívar en vivo con convertidor.
-- **Lugares, mapa, fotos y videos**: 17 lugares con fotos reales de Wikipedia / Wikimedia Commons.
+- **Lugares, mapa, fotos y videos**: 18 lugares con fotos reales de Wikipedia / Wikimedia Commons.
 - **Clima en vivo, festivos 2026–2027, primeros días y vivir aquí**.
 - Franja "Hoy en Cartagena" que se actualiza sola: fecha, plazo de PPT, clima, dólar, próximo evento de las fiestas y próximo festivo.
 
@@ -45,6 +45,7 @@ Sin emojis ni íconos: todo va con fotos reales.
 - Vías de regularización: El Nacional (sep 2026); plazo para reclamar PPT: El Diario (sep 2026); PEP Tutor: Infobae (abr 2026).
 - Centro Facilitador de Migración en Cartagena: El Heraldo.
 - Fiestas de Independencia 2026: El Universal (16 sep 2026).
+- Gran Malecón del Mar: La República y Diario La Libertad (24 oct 2026), El Universal (18 sep 2026).
 
 Información de referencia, no es asesoría legal.
 

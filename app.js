@@ -61,6 +61,11 @@ const PH = {
   pegasos: ['', 'Muelle de los Pegasos Cartagena'],
   bocagrande: ['Bocagrande', 'Bocagrande Cartagena skyline'],
   boquilla: ['', 'La Boquilla Cartagena beach'],
+  malecon: ['', 'Gran Malecon del Mar Cartagena'],
+  mcrespo: ['', 'playa Crespo Cartagena'],
+  mbici: ['', 'ciclovia malecon Cartagena mar'],
+  mplaya: ['', 'Marbella beach Cartagena'],
+  mespolon: ['', 'espolon playa Cartagena'],
   bazurto: ['', 'Mercado de Bazurto Cartagena'],
   rosario: ['Rosario Islands', 'Islas del Rosario Colombia'],
   playablanca: ['', 'Playa Blanca Baru Colombia'],
@@ -187,6 +192,9 @@ const PLACES = [
   { id: 'bocagrande', cat: 'beach', lat: 10.3996, lon: -75.5561, free: true,
     n: { es: 'Bocagrande', en: 'Bocagrande' },
     d: { es: 'La zona de edificios y hoteles frente al mar. Playa urbana, gratis para caminar; las carpas y sillas se pagan.', en: 'The high-rise and hotel strip by the sea. Urban beach, free to walk; tents and chairs cost extra.' } },
+  { id: 'malecon', cat: 'beach', lat: 10.4560, lon: -75.5040, free: true,
+    n: { es: 'Gran Malecón del Mar (nuevo)', en: 'Gran Malecón del Mar (new)' },
+    d: { es: 'El nuevo malecón frente al mar, abierto el 24 de octubre de 2026: 2 km entre La Boquilla y el túnel de Crespo para caminar, montar bici y hacer deporte. Gratis. Tiene su propia sección en la app.', en: 'The new seafront promenade, opened on 24 October 2026: 2 km between La Boquilla and the Crespo tunnel for walking, cycling and sport. Free. It has its own section in the app.' } },
   { id: 'boquilla', cat: 'beach', lat: 10.4703, lon: -75.4985, free: true,
     n: { es: 'La Boquilla', en: 'La Boquilla' },
     d: { es: 'Pueblo de pescadores al norte, con playa amplia, pescado frito y paseos en canoa por los manglares.', en: 'Fishing village to the north, with a wide beach, fried fish and canoe trips through the mangroves.' } },
@@ -421,10 +429,34 @@ const IS = {
   ]
 };
 
+const ML = {
+  what: [
+    { es: 'Es el proyecto de espacio público más grande de la ciudad: un corredor costero que tendrá 6 km frente al mar Caribe en la zona norte.', en: 'It\'s the city\'s biggest public-space project: a coastal corridor that will run 6 km along the Caribbean Sea in the north of the city.' },
+    { es: 'El primer tramo, de 2 km entre La Boquilla (sector Playa Azul) y el acceso al túnel de Crespo, se abrió al público el sábado 24 de octubre de 2026.', en: 'The first 2 km stretch, between La Boquilla (Playa Azul area) and the Crespo tunnel access, opened to the public on Saturday 24 October 2026.' },
+    { es: 'Además de paseo, protege la costa: espolones y obras contra el oleaje y la erosión que se estaba comiendo las playas.', en: 'Besides a promenade, it protects the coast: groynes and works against the waves and erosion that were eating the beaches.' },
+    { es: 'Lo maneja una empresa 100% pública del Distrito. La inversión es de unos $197.000 millones y el recorrido completo se espera para 2027.', en: 'It\'s run by a 100% public city company. Investment is around COP 197 billion and the full route is expected in 2027.' }
+  ],
+  doit: [
+    [{ es: 'Caminar o trotar frente al mar', en: 'Walk or jog by the sea' }, { es: 'Senderos peatonales con vista al Caribe. Lo mejor es temprano en la mañana o al atardecer, cuando baja el sol.', en: 'Footpaths facing the Caribbean. Best early in the morning or at sunset, when the sun eases off.' }, 'malecon'],
+    [{ es: 'Montar bicicleta', en: 'Ride a bike' }, { es: 'Tiene ciclorruta a lo largo del tramo. Respeta el carril de los peatones.', en: 'There\'s a bike lane along the stretch. Keep off the pedestrian path.' }, 'mbici'],
+    [{ es: 'Ir a la playa', en: 'Go to the beach' }, { es: 'Varios accesos a la playa, con baños públicos, duchas y zonas de comida.', en: 'Several beach access points, with public toilets, showers and food areas.' }, 'mplaya'],
+    [{ es: 'Hacer deporte y llevar a la mascota', en: 'Exercise and bring your pet' }, { es: 'Zonas de calistenia, plazoletas, áreas verdes y espacios para mascotas.', en: 'Calisthenics areas, small plazas, green spaces and pet areas.' }, 'mcrespo']
+  ],
+  tips: [
+    { es: 'Es gratis y abierto a todo el mundo: buen plan familiar de fin de semana que no cuesta nada.', en: 'It\'s free and open to everyone: a great weekend family plan that costs nothing.' },
+    { es: 'Queda en la zona norte, cerca del aeropuerto: llega en taxi o por aplicación, o en las rutas de bus que van a La Boquilla.', en: 'It\'s in the north, near the airport: get there by taxi or app, or on the bus routes to La Boquilla.' },
+    { es: 'El sol pega fuerte y casi no hay sombra todavía: lleva agua, gorra y bloqueador.', en: 'The sun is fierce and there\'s little shade yet: bring water, a cap and sunscreen.' },
+    { es: 'El Distrito espera 600 empleos formales para trabajadores de playa y locales comerciales: si vendes en playa, pregunta cómo formalizarte allí.', en: 'The city expects 600 formal jobs for beach workers plus commercial units: if you sell on the beach, ask how to get a formal spot there.' },
+    { es: 'El resto del malecón sigue en obra: no te metas a las zonas cerradas ni a los espolones en construcción.', en: 'The rest of the promenade is still under construction: stay out of closed areas and groynes being built.' },
+    { es: 'Cuida lo nuevo: no botes basura ni rayes. Es de todos.', en: 'Look after it: no litter or graffiti. It belongs to everyone.' }
+  ]
+};
+
 const VIDEOS = [
   [{ es: 'Recorrido a pie por la Ciudad Amurallada', en: 'Walled City walking tour' }, 'Cartagena ciudad amurallada recorrido 4K', 'murallas'],
   [{ es: 'Vivir en Cartagena siendo venezolano', en: 'Living in Cartagena as a Venezuelan' }, 'venezolano viviendo en Cartagena experiencia', 'street'],
   [{ es: 'Getsemaní de día y de noche', en: 'Getsemaní by day and night' }, 'Getsemaní Cartagena recorrido', 'getsemani'],
+  [{ es: 'El nuevo Gran Malecón del Mar', en: 'The new Gran Malecón del Mar' }, 'Gran Malecón del Mar Cartagena', 'malecon'],
   [{ es: 'Islas del Rosario y Playa Blanca', en: 'Rosario Islands and Playa Blanca' }, 'Islas del Rosario Playa Blanca Barú guía', 'rosario'],
   [{ es: 'Aprende a bailar champeta', en: 'Learn to dance champeta' }, 'aprender a bailar champeta paso básico', 'champeta'],
   [{ es: 'Fiestas de Independencia de Cartagena', en: 'Cartagena Independence festivities' }, 'Fiestas de Independencia Cartagena desfile', 'fiestas']
@@ -435,6 +467,7 @@ const SECTIONS = [
   { id: 'papers', ph: 'reloj', badge: { es: 'Urgente', en: 'Urgent' }, t: { es: 'Papeles, PPT y visas', en: 'Papers, PPT & visas' }, s: { es: 'PPT, PEP Tutor, Visa V, Check-MIG', en: 'PPT, PEP Tutor, Visa V, Check-MIG' } },
   { id: 'work', ph: 'pegasos', t: { es: 'Trabajo y salario', en: 'Work & wages' }, s: { es: 'Mínimo 2026 y calculadora', en: '2026 minimum & calculator' } },
   { id: 'fiestas', ph: 'fiestas', badge: { es: 'Noviembre', en: 'November' }, t: { es: 'Fiestas de Independencia', en: 'Independence festivities' }, s: { es: 'Agenda 2026 con cuenta regresiva', en: '2026 schedule with countdown' } },
+  { id: 'malecon', ph: 'malecon', badge: { es: 'Nuevo', en: 'New' }, t: { es: 'Gran Malecón del Mar', en: 'Gran Malecón del Mar' }, s: { es: 'Abierto desde el 24 de octubre: 2 km frente al mar', en: 'Open since 24 October: 2 km by the sea' } },
   { id: 'getsemani', ph: 'getsemani', badge: { es: 'Barrio', en: 'District' }, t: { es: 'Barrio Getsemaní', en: 'Getsemaní district' }, s: { es: 'Historia, murales, rumba y consejos', en: 'History, murals, nightlife and tips' } },
   { id: 'islas', ph: 'rosario', badge: { es: 'Islas', en: 'Islands' }, t: { es: 'Islas del Rosario y Barú', en: 'Rosario Islands & Barú' }, s: { es: 'Lanchas, Playa Blanca, corales y consejos', en: 'Boats, Playa Blanca, reefs and tips' } },
   { id: 'places', ph: 'murallas', t: { es: 'Lugares', en: 'Places' }, s: { es: 'Qué conocer, gratis y de pago', en: 'What to see, free and paid' } },
@@ -448,7 +481,7 @@ const SECTIONS = [
   { id: 'map', ph: 'cartagena', t: { es: 'Mapa', en: 'Map' }, s: { es: 'Lugares, hospitales, Migración', en: 'Places, hospitals, immigration' } },
   { id: 'media', ph: 'bocagrande', t: { es: 'Fotos y videos', en: 'Photos & videos' }, s: { es: 'Conoce la ciudad antes de ir', en: 'See the city before you go' } }
 ];
-const WIDE = ['papers', 'fiestas', 'getsemani', 'islas', 'media'];
+const WIDE = ['papers', 'fiestas', 'malecon', 'getsemani', 'islas', 'media'];
 
 function head(id, title, sub) {
   return `<button class="back" onclick="go('home')">${L(T.back)}</button>
@@ -605,7 +638,7 @@ V.places = () => {
   ${cats.map(c => `<h3 class="mt2" style="text-transform:uppercase">${L(c[1])}</h3><div class="rail mt">${PLACES.filter(p => p.cat === c[0]).map(p => `
     <article class="place"><div class="ph" ${photo(p.id)}><span class="pill ${p.free ? 'free' : 'paid'}">${p.free ? L({ es: 'Gratis', en: 'Free' }) : L({ es: 'Con costo', en: 'Paid' })}</span></div>
       <div class="bd"><h3>${L(p.n)}</h3><p>${L(p.d)}</p>
-      <div class="btns"><a class="btn sm red" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}" target="_blank" rel="noopener">${L({ es: 'Cómo llegar', en: 'Directions' })}</a><button class="btn sm ghost" onclick="showOnMap('${p.id}')">${L({ es: 'En el mapa', en: 'On map' })}</button>${p.id === 'getsemani' ? `<button class="btn sm" onclick="go('getsemani')">${L({ es: 'Ver barrio', en: 'See district' })}</button>` : ''}${p.id === 'rosario' || p.id === 'playablanca' ? `<button class="btn sm" onclick="go('islas')">${L({ es: 'Ver islas', en: 'See islands' })}</button>` : ''}</div></div></article>`).join('')}</div>`).join('')}`;
+      <div class="btns"><a class="btn sm red" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}" target="_blank" rel="noopener">${L({ es: 'Cómo llegar', en: 'Directions' })}</a><button class="btn sm ghost" onclick="showOnMap('${p.id}')">${L({ es: 'En el mapa', en: 'On map' })}</button>${p.id === 'malecon' ? `<button class="btn sm" onclick="go('malecon')">${L({ es: 'Ver malecón', en: 'See promenade' })}</button>` : ''}${p.id === 'getsemani' ? `<button class="btn sm" onclick="go('getsemani')">${L({ es: 'Ver barrio', en: 'See district' })}</button>` : ''}${p.id === 'rosario' || p.id === 'playablanca' ? `<button class="btn sm" onclick="go('islas')">${L({ es: 'Ver islas', en: 'See islands' })}</button>` : ''}</div></div></article>`).join('')}</div>`).join('')}`;
 };
 
 function featureView(id, data, o) {
@@ -623,6 +656,12 @@ V.getsemani = () => featureView('getsemani', GS, {
   ph: 'getsemani', kicker: { es: 'Cartagena', en: 'Cartagena' }, h1: { es: 'Getsemaní', en: 'Getsemaní' },
   p: { es: 'Murales, sombrillas de colores y la Plaza de la Trinidad llena de vida.', en: 'Murals, colourful umbrellas and a lively Trinidad Square.' },
   tipsT: { es: 'Consejos de latino a latino', en: 'Tips from Latinos to Latinos' }, mapId: 'getsemani', yt: 'Getsemaní Cartagena'
+});
+V.malecon = () => featureView('malecon', ML, {
+  title: { es: 'Gran Malecón del Mar', en: 'Gran Malecón del Mar' }, sub: { es: 'El nuevo paseo frente al mar de la zona norte, abierto el 24 de octubre de 2026.', en: 'The new seafront promenade in the north, opened on 24 October 2026.' },
+  ph: 'malecon', kicker: { es: 'Nuevo en Cartagena', en: 'New in Cartagena' }, h1: { es: 'Gran Malecón del Mar', en: 'Gran Malecón del Mar' },
+  p: { es: '2 km para caminar, montar bici y disfrutar el Caribe gratis. Serán 6 km en 2027.', en: '2 km to walk, cycle and enjoy the Caribbean for free. It will be 6 km in 2027.' },
+  tipsT: { es: 'Consejos para ir', en: 'Tips for going' }, mapId: 'malecon', yt: 'Gran Malecón del Mar Cartagena'
 });
 V.islas = () => featureView('islas', IS, {
   title: { es: 'Islas del Rosario y Barú', en: 'Rosario Islands & Barú' }, sub: { es: 'El paseo de playa más famoso desde Cartagena.', en: 'The most famous beach day out from Cartagena.' },
@@ -788,7 +827,7 @@ V.media = () => `
   <div class="vids">${VIDEOS.map(v => `<a class="vid" ${photo(v[2])} href="https://www.youtube.com/results?search_query=${encodeURIComponent(v[1])}" target="_blank" rel="noopener"><span class="playc"></span><div><b>${L(v[0])}</b><small>YouTube</small></div></a>`).join('')}</div>`;
 
 /* ---------- Render y navegación ---------- */
-const VIEWS = ['home', 'papers', 'work', 'fiestas', 'getsemani', 'islas', 'places', 'move', 'health', 'sos', 'talk', 'money', 'life', 'weather', 'first', 'map', 'media'];
+const VIEWS = ['home', 'papers', 'work', 'fiestas', 'malecon', 'getsemani', 'islas', 'places', 'move', 'health', 'sos', 'talk', 'money', 'life', 'weather', 'first', 'map', 'media'];
 let current = 'home';
 function render() {
   document.documentElement.lang = LANG;
@@ -820,7 +859,7 @@ function observeReveal() {
 }
 
 /* ---------- Hero en movimiento ---------- */
-const HERO = ['reloj', 'getsemani', 'rosario', 'sanfelipe', 'murallas', 'bocagrande', 'playablanca'];
+const HERO = ['reloj', 'malecon', 'getsemani', 'rosario', 'sanfelipe', 'murallas', 'bocagrande', 'playablanca'];
 let heroI = 0, heroTimer = null;
 function heroSetup() {
   const h = $('#hero'); if (!h) return;
@@ -873,6 +912,7 @@ function buildTicker() {
   if (FX && FX.COP) parts.push(`<span>1 USD = <b>${cop(FX.COP)}</b></span>`);
   const nf = nextFiesta(); if (nf) parts.push(`<span>${L({ es: 'Fiestas', en: 'Festivities' })}: <b>${L(nf[1])}</b> (${daysTo(nf[0]) === 0 ? L({ es: 'hoy', en: 'today' }) : L({ es: 'en ' + daysTo(nf[0]) + ' días', en: 'in ' + daysTo(nf[0]) + ' days' })})</span>`);
   const nh = nextHoliday(); if (nh) parts.push(`<span>${L({ es: 'Próximo festivo', en: 'Next holiday' })}: <b>${L(nh[1])}</b> (${daysTo(nh[0]) === 0 ? L({ es: 'hoy', en: 'today' }) : L({ es: 'en ' + daysTo(nh[0]) + ' días', en: 'in ' + daysTo(nh[0]) + ' days' })})</span>`);
+  parts.push(`<span>${L({ es: 'Nuevo', en: 'New' })}: <b>Gran Malecón del Mar</b> ${L({ es: 'abierto, 2 km gratis frente al mar', en: 'open, 2 free km by the sea' })}</span>`);
   parts.push(`<span>${L({ es: 'Emergencias', en: 'Emergencies' })}: <b>123</b></span>`);
   parts.push(`<span>Transcaribe: <b>${cop(TRANSCARIBE)}</b></span>`);
   parts.push(`<span>${L({ es: 'Salario mínimo 2026', en: '2026 minimum wage' })}: <b>${cop(WAGE.month)}</b></span>`);
